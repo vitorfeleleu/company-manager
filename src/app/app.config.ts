@@ -1,8 +1,18 @@
-import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import {
+  ApplicationConfig,
+  DEFAULT_CURRENCY_CODE,
+  LOCALE_ID,
+} from '@angular/core';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
 
-import { routes } from './app.routes';
+import { APP_ROUTES } from './app.routes';
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes)],
+  providers: [
+    provideRouter(APP_ROUTES, withComponentInputBinding()),
+    provideHttpClient(),
+    { provide: LOCALE_ID, useValue: 'pt' },
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
+  ],
 };
