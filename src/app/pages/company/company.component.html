@@ -1,0 +1,29 @@
+<div [formGroup]="model">
+  <input
+    #companyName
+    type="text"
+    placeholder="companyName"
+    formControlName="companyName"
+  />
+
+  <input #cnpj type="text" placeholder="cnpj" formControlName="cnpj" />
+
+  <input #address type="text" placeholder="address" formControlName="address" />
+
+  <div formGroupName="contact">
+    <input #email type="text" placeholder="email" formControlName="email" />
+    <input #phone type="text" placeholder="phone" formControlName="phone" />
+    <input
+      #telephone
+      type="text"
+      placeholder="telephone"
+      formControlName="telephone"
+    />
+  </div>
+
+  <!-- <button (click)="addUser(name.value, email.value)">Adicionar Usuário</button> -->
+  <button (click)="onSubmit()">Adicionar Usuário</button>
+</div>
+<button [routerLink]="['/list']">Lista</button>
+<hr />
+<!-- <guep-company-list /> -->

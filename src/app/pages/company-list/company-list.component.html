@@ -1,0 +1,32 @@
+<h5>lista</h5>
+<ul>
+  @for(company of companies; track company.id) {
+  <li>
+    id: {{ company.id }} - {{ company.companyName }} - {{ company.cnpj }}
+    @if (company.contact) {
+    <div>
+      Contatos: {{ company.contact.id }} - {{ company.contact.telephone }} -
+      {{ company.contact.phone }}
+    </div>
+    }
+  </li>
+  <button (click)="delete(company.id!)">delete</button>
+  <button [routerLink]="'/edit/' + company.id">editar</button>
+  }@empty {Vazio}
+</ul>
+<button [routerLink]="['/add']">voltar</button>
+
+<label>
+  <input #buscarId type="number" placeholder="id" />
+  <button (click)="buscar(buscarId.value)">Buscar</button>
+</label>
+
+<hr />
+Pesquisa: @if (company) {
+{{ company.id }} - {{ company.companyName }} - {{ company.cnpj }}
+}
+
+<hr />
+Pesquisa: @if (contact) {
+{{ contact.id }} - {{ contact.email }}
+}
