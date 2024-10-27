@@ -17,4 +17,5 @@ import { LabelInputMessageErrorComponent } from '../../label-input-message-error
 })
 export class InputMaskComponent<T> extends ControlValueAccessorDirective<T> {
   public maskInput = input.required<string>();
+  public dropSpecialCharacters = input(true);
 }

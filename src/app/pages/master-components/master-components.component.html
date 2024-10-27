@@ -13,5 +13,20 @@
     maskInput="0000-00"
     placeHolderText="0000-00"
   />
+
+  <guep-input-mask
+    label="CNPJ"
+    inputId="cnpj"
+    formControlName="cnpj"
+    [maskInput]="cnpjMask()"
+    [placeHolderText]="cnpjMask()"
+  />
+
+  <guep-input
+    placeHolderText="email"
+    label="E-mail"
+    inputId="email"
+    formControlName="email"
+  />
 </div>
 <button (click)="logModel()">Console Log</button>

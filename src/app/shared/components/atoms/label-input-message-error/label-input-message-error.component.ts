@@ -23,9 +23,16 @@ export class LabelInputMessageErrorComponent {
 
   private _getErrorText(): string | null {
     const erros = this.errorsForm();
+
     if (!erros) return null;
     if (erros.required) return 'Campo obrigatório';
     if (erros.mask) return 'Formato incorreto';
-    return Object.getOwnPropertyNames(erros)[0];
+    if (erros.email) return 'Email inválido';
+
+    const errorKey = Object.getOwnPropertyNames(erros)[0];
+    if (typeof erros[errorKey] === 'string') {
+      return `${erros[errorKey]}`;
+    }
+    return errorKey;
   }
 }
