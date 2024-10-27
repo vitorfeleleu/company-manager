@@ -1,0 +1,17 @@
+@import "./assets/styles/typography/typography.scss";
+
+.label-icon-error {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  margin-right: 2px;
+}
+
+.label-input-massage-error {
+  @include base-text-subtitle;
+  color: var(--accent-error);
+  margin-left: 12px;
+  transition: 250ms ease-in;
+  align-items: center;
+  display: none;
+}
