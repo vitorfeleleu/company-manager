@@ -1,0 +1,146 @@
+$theme-bg: (
+  primary: var(--primary-blue),
+  secondary: var(--neutral-medium),
+  success: var(--switch-color),
+  info: var(--color-1964F6),
+  warning: var(--primary-orange),
+  help: var(--focus-input),
+  danger: var(--accent-error),
+);
+
+$theme-color: (
+  primary: var(--neutral-background),
+  secondary: var(--neutral-background),
+  success: var(--neutral-background),
+  info: var(--neutral-background),
+  warning: var(--neutral-background),
+  help: var(--neutral-background),
+  danger: var(--neutral-background),
+);
+
+%themeVariantButtonDefault {
+  @each $name, $bg-color in $theme-bg {
+    &.#{$name} {
+      background-color: $bg-color;
+      color: map-get($theme-color, $name);
+
+      &:hover:not(:disabled) {
+        background-color: $bg-color !important;
+        filter: brightness(1.25);
+      }
+    }
+  }
+}
+
+%themeVariantButtonText {
+  @each $name, $bg-color in $theme-bg {
+    &.#{$name} {
+      color: $bg-color;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: var(--neutral-foreground) !important;
+    }
+  }
+}
+
+%themeVariantButtonOutlined {
+  @each $name, $bg-color in $theme-bg {
+    &.#{$name} {
+      background-color: $bg-color;
+      color: map-get($theme-color, $name);
+
+      border: 2px solid $bg-color;
+      color: $bg-color;
+
+      &:hover:not(:disabled) {
+        background-color: $bg-color !important;
+        color: map-get($theme-color, $name) !important;
+      }
+    }
+  }
+}
+
+%disableButton {
+  &.disabled,
+  &[disabled] {
+    background-color: var(--neutral-background) !important;
+    color: var(--neutral-medium) !important;
+    filter: brightness(0.8) !important;
+    border: none !important;
+  }
+}
+
+%defaultButton {
+  position: relative;
+  font-size: 14px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  padding: 4px 16px;
+  border-radius: 4px;
+  min-width: fit-content;
+  border: none;
+  border-radius: 50px;
+
+  &:hover:not(:disabled) {
+    cursor: pointer;
+  }
+
+  @extend %disableButton;
+
+  .loading-button {
+    @extend %defaultButton;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .loading-button::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 3px solid var(--neutral-medium);
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.button-default {
+  @extend %defaultButton;
+  @extend %themeVariantButtonDefault;
+  transition: 200ms ease-in;
+}
+
+.button-text {
+  @extend %defaultButton;
+  @extend %themeVariantButtonText;
+  background-color: transparent !important;
+  font-weight: 500;
+}
+
+.button-outlined {
+  @extend %defaultButton;
+  @extend %themeVariantButtonOutlined;
+  background-color: transparent !important;
+  transition: 200ms ease-in;
+}

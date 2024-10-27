@@ -29,4 +29,72 @@
     formControlName="email"
   />
 </div>
-<button (click)="logModel()">Console Log</button>
+
+<div class="w-full px-5">
+  <button (click)="logModel()" guepButton>Console Log</button>
+  <hr />
+</div>
+
+<div class="flex flex-column gap-3 p-5">
+  <div class="flex gap-2">
+    <button guepButton>Button Primary</button>
+    <button guepButton template="outlined">Button outlined</button>
+    <button guepButton template="text">Button text</button>
+  </div>
+
+  <div class="flex gap-2">
+    <button guepButton severity="secondary">Button Primary</button>
+    <button guepButton template="outlined" severity="secondary">
+      Button outlined
+    </button>
+    <button guepButton template="text" severity="secondary">Button text</button>
+  </div>
+
+  <div class="flex gap-2">
+    <button guepButton severity="danger">Button Primary</button>
+    <button guepButton template="outlined" severity="danger">
+      Button outlined
+    </button>
+    <button guepButton template="text" severity="danger">Button text</button>
+  </div>
+
+  <div class="flex gap-2">
+    <button guepButton severity="help">Button Primary</button>
+    <button guepButton template="outlined" severity="help">
+      Button outlined
+    </button>
+    <button guepButton template="text" severity="help">Button text</button>
+  </div>
+
+  <div class="flex gap-2">
+    <button guepButton severity="info">Button Primary</button>
+    <button guepButton template="outlined" severity="info">
+      Button outlined
+    </button>
+    <button guepButton template="text" severity="info">Button text</button>
+  </div>
+
+  <div class="flex gap-2">
+    <button guepButton severity="success">Button Primary</button>
+    <button guepButton template="outlined" severity="success">
+      Button outlined
+    </button>
+    <button guepButton template="text" severity="success">Button text</button>
+  </div>
+
+  <div class="flex gap-2">
+    <button guepButton severity="warning">Button Primary</button>
+    <button guepButton template="outlined" severity="warning">
+      Button outlined
+    </button>
+    <button guepButton template="text" severity="warning">Button text</button>
+  </div>
+
+  <div class="flex gap-2">
+    <button guepButton disabled>Button Primary</button>
+    <button guepButton template="outlined" [loading]="true">
+      Button outlined
+    </button>
+    <button guepButton template="text" disabled>Button text</button>
+  </div>
+</div>
