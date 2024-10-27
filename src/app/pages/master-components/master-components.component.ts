@@ -7,6 +7,7 @@ import {
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { InputMaskComponent } from '@shared/components/atoms/inputs/input-mask/input-mask.component';
 import { InputComponent } from '@shared/components/atoms/inputs/input/input.component';
+import { StandardPageComponent } from '@shared/components/organisms/standard-page/standard-page.component';
 import { BaseFormDirective } from '@shared/directives/base-form.directive';
 import { ButtonDirective } from '@shared/directives/button.directive';
 import { CNPJ_MASK } from '@shared/helpers/consts';
@@ -22,6 +23,7 @@ import { CnpjPipe } from '@shared/pipes/cnpj.pipe';
     InputMaskComponent,
     CnpjPipe,
     ButtonDirective,
+    StandardPageComponent,
   ],
   templateUrl: './master-components.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

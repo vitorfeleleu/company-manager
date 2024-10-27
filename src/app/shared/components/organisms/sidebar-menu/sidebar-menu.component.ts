@@ -23,7 +23,6 @@ import { TooltipModule } from 'primeng/tooltip';
 export class SidebarMenuComponent {
   protected openMenu = signal(false);
   protected menuList = signal<MenuInterface[]>(MENU_LIST);
-  protected loading = signal(false);
 
   protected tooltipMenuText = computed(() => {
     if (this.openMenu()) {
