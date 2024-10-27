@@ -1,0 +1,223 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+  margin: 0;
+}
+
+@mixin base-text {
+  font-size: 16px;
+  letter-spacing: normal;
+  text-decoration: none;
+}
+
+@mixin base-text-subtitle {
+  font-size: 14px;
+  letter-spacing: normal;
+  text-decoration: none;
+  text-transform: none;
+}
+
+@mixin base-text-caption {
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-decoration: none;
+}
+
+@mixin base-text-heading-1 {
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-decoration: none;
+}
+
+@mixin base-text-heading-2 {
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-decoration: none;
+}
+
+@mixin base-text-heading-3 {
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-decoration: none;
+}
+
+@mixin base-text-heading-4 {
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-decoration: none;
+}
+
+@mixin base-text-heading-5 {
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-decoration: none;
+}
+
+@mixin base-text-heading-6 {
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-decoration: none;
+}
+
+/* Base text */
+
+.text-base {
+  @include base-text;
+  font-weight: 400;
+}
+.text-base-medium {
+  @include base-text;
+  font-weight: 500;
+}
+
+/*CAPTION 2*/
+.text-caption {
+  @include base-text-caption;
+  font-weight: 400;
+}
+.text-caption-medium {
+  @include base-text-caption;
+  font-weight: 500;
+}
+.text-caption-semibold {
+  @include base-text-caption;
+  font-weight: 600;
+}
+
+/*HEADING 18*/
+.text-18-medium {
+  @include base-text-heading-6;
+  font-weight: 500;
+}
+
+/*HEADING 22*/
+.text-22-medium {
+  @include base-text-heading-4;
+  font-weight: 500;
+}
+
+.text-22-semibold {
+  @include base-text-heading-4;
+  font-weight: 600;
+}
+
+/*SUBTITLE 1*/
+.text-subtitle-1 {
+  @include base-text-subtitle;
+  line-height: 1.5;
+  font-weight: 400;
+}
+.text-subtitle-1-medium {
+  @include base-text-subtitle;
+  line-height: 1;
+  font-weight: 500;
+}
+.text-subtitle-1-semibold {
+  @include base-text-subtitle;
+  line-height: 1;
+  font-weight: 600;
+}
+
+/*SUBTITLE 2*/
+.text-subtitle-2 {
+  @include base-text-subtitle;
+  line-height: 1.2;
+  font-weight: 400;
+}
+.text-subtitle-2-medium {
+  @include base-text-subtitle;
+  line-height: 1.2;
+  font-weight: 500;
+}
+.text-subtitle-2-semibold {
+  @include base-text-subtitle;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+/*HEADING 3*/
+.text-heading-3,
+h3 {
+  @include base-text-heading-3;
+  font-weight: 400;
+}
+
+.text-heading-3-medium {
+  @include base-text-heading-3;
+  font-weight: 500;
+}
+
+.text-heading-3-semibold,
+h3 {
+  @include base-text-heading-3;
+  font-weight: 600;
+}
+
+.text-heading-3-bold {
+  @include base-text-heading-3;
+  font-weight: 700;
+}
+
+/*HEADING 5*/
+.text-heading-5 {
+  @include base-text-heading-5;
+  font-weight: 400;
+}
+
+.text-heading-5-medium,
+h5 {
+  @include base-text-heading-5;
+  font-weight: 500;
+}
+
+.text-heading-5-semibold {
+  @include base-text-heading-5;
+  font-weight: 600;
+}
+
+.text-heading-5-bold {
+  @include base-text-heading-5;
+  font-weight: 700;
+}
+
+/*HEADING 6*/
+.text-heading-6,
+h6 {
+  @include base-text-heading-6;
+  font-weight: 400;
+}
+
+.text-heading-6-medium {
+  @include base-text-heading-6;
+  font-weight: 500;
+}
+
+.text-heading-6-semibold,
+h6 {
+  @include base-text-heading-6;
+  font-weight: 600;
+}
+
+.text-heading-6-bold {
+  @include base-text-heading-6;
+  font-weight: 700;
+}
+
+/*Dialog*/
+.text-title-dialog {
+  @include base-text-heading-5;
+  line-height: 1.2;
+  font-weight: 600;
+}
