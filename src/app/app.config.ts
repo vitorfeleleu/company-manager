@@ -7,12 +7,14 @@ import {
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 
 import { provideHttpClient } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { COMPANY_REPOSITORY_TOKEN } from '@core/factories/company.token';
 import { CONTACT_REPOSITORY_TOKEN } from '@core/factories/contact.token';
 import { DatabaseService } from '@core/services/database.service';
 import { SQLiteCompanyRepository } from '@core/sql/repositories/sqlite-company.repository';
 import { SQLiteContactRepository } from '@core/sql/repositories/sqlite-contact.repository';
 import { provideEnvironmentNgxMask } from 'ngx-mask';
+import { MessageService } from 'primeng/api';
 import { APP_ROUTES } from './app.routes';
 
 export function initializeApp(dbService: DatabaseService): () => Promise<void> {
@@ -24,6 +26,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(APP_ROUTES, withComponentInputBinding()),
     provideHttpClient(),
     provideEnvironmentNgxMask(),
+    provideAnimationsAsync(),
     { provide: LOCALE_ID, useValue: 'pt' },
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
     {
@@ -40,5 +43,6 @@ export const appConfig: ApplicationConfig = {
       deps: [DatabaseService],
       multi: true,
     },
+    MessageService,
   ],
 };

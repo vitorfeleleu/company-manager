@@ -18,10 +18,6 @@
   &:focus {
     outline: 2px solid var(--color-1964F6);
   }
-
-  &.ng-invalid.ng-touched.ng-dirty:not(:focus) {
-    @extend %defaultInputError;
-  }
 }
 
 %defaultInputLabel {
@@ -33,6 +29,10 @@
   &.ng-invalid.ng-touched.ng-dirty {
     .label-input-massage-error {
       display: flex;
+    }
+
+    input:not(:focus) {
+      @extend %defaultInputError;
     }
   }
 

@@ -1,49 +1,50 @@
 {
-	"formatter": {
-		"enabled": true,
-		"indentStyle": "tab",
-		"lineEnding": "crlf",
-		"lineWidth": 100,
-		"indentWidth": 2,
-		"formatWithErrors": true
-	},
-	"javascript": {
-		"jsxRuntime": "reactClassic",
-		"parser": {
-			"unsafeParameterDecoratorsEnabled": true
-		},
-		"formatter": {
-			"quoteStyle": "single",
-			"semicolons": "always",
-			"arrowParentheses": "always"
-		}
-	},
-	"linter": {
-		"enabled": true,
-		"rules": {
-			"recommended": true,
-			"complexity": {
-				"useLiteralKeys": {
-					"level": "info",
-					"fix": "safe"
-				}
-			},
-			"style": {
-				"noInferrableTypes": {
-					"level": "error",
-					"fix": "safe"
-				},
-				"useNamingConvention": {
-					"level": "error",
-					"options": {
-						"strictCase": false
-					}
-				},
-				"useImportType": {
-					"level": "warn",
-					"fix": "safe"
-				}
-			}
-		}
-	}
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "tab",
+    "lineEnding": "crlf",
+    "lineWidth": 100,
+    "indentWidth": 2,
+    "formatWithErrors": true
+  },
+  "javascript": {
+    "jsxRuntime": "reactClassic",
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
+    },
+    "formatter": {
+      "quoteStyle": "single",
+      "semicolons": "always",
+      "arrowParentheses": "always"
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "complexity": {
+        "noForEach": "off",
+        "useLiteralKeys": {
+          "level": "info",
+          "fix": "safe"
+        }
+      },
+      "style": {
+        "noInferrableTypes": {
+          "level": "error",
+          "fix": "safe"
+        },
+        "useNamingConvention": {
+          "level": "error",
+          "options": {
+            "strictCase": false
+          }
+        },
+        "useImportType": {
+          "level": "warn",
+          "fix": "safe"
+        }
+      }
+    }
+  }
 }
