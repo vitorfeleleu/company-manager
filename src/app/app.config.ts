@@ -12,6 +12,7 @@ import { CONTACT_REPOSITORY_TOKEN } from '@core/factories/contact.token';
 import { DatabaseService } from '@core/services/database.service';
 import { SQLiteCompanyRepository } from '@core/sql/repositories/sqlite-company.repository';
 import { SQLiteContactRepository } from '@core/sql/repositories/sqlite-contact.repository';
+import { provideEnvironmentNgxMask } from 'ngx-mask';
 import { APP_ROUTES } from './app.routes';
 
 export function initializeApp(dbService: DatabaseService): () => Promise<void> {
@@ -22,9 +23,9 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(APP_ROUTES, withComponentInputBinding()),
     provideHttpClient(),
+    provideEnvironmentNgxMask(),
     { provide: LOCALE_ID, useValue: 'pt' },
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
-
     {
       provide: COMPANY_REPOSITORY_TOKEN,
       useClass: SQLiteCompanyRepository,
