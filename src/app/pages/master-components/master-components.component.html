@@ -1,0 +1,17 @@
+<div [formGroup]="model" class="w-full flex flex-wrap gap-3 p-5">
+  <guep-input
+    placeHolderText="input"
+    label="Campo de texto"
+    inputId="input"
+    formControlName="input"
+  />
+
+  <guep-input-mask
+    label="Campo Mask"
+    inputId="inputMask"
+    formControlName="inputMask"
+    maskInput="0000-00"
+    placeHolderText="0000-00"
+  />
+</div>
+<button (click)="logModel()">Console Log</button>
