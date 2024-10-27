@@ -1,0 +1,15 @@
+<label [attr.for]="inputId()" class="label-input-text">
+  {{ label() }}
+</label>
+
+<input
+  type="text"
+  class="guep-input"
+  style="height: 44px"
+  [formControl]="control"
+  [attr.id]="inputId()"
+  [placeholder]="placeHolderText()"
+  [mask]="maskInput()"
+/>
+
+<guep-label-input-message-error [errorsForm]="control.errors" />
