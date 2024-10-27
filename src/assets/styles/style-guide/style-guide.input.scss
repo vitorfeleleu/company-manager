@@ -1,6 +1,5 @@
 %defaultInputError {
   border-color: var(--accent-error);
-  padding-right: 44px;
   transition: 200ms ease-in;
 }
 
@@ -29,6 +28,7 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
+  flex: 1 1 0%;
 
   &.ng-invalid.ng-touched.ng-dirty {
     .label-input-massage-error {
