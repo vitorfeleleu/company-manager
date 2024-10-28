@@ -1,0 +1,22 @@
+<div class="h-full flex flex-column overflow-auto" [style]="styleDialog()" [style.width]="dialogWidth()">
+  @if (displayHeader()) {
+  <header class="dialog-content-header">
+    <ng-content select="[header]" />
+    @if (showCloseButton()) {
+    <button guepButton template="text" (click)="closeDialog()">
+      <span class="material-symbols-rounded">close</span>
+    </button>
+    }
+  </header>
+  }
+  @if (displayContent()) {
+  <div [class]="styleClassContent() + ' dialog-content-container'" style="max-height: 70vh; outline: none">
+    <ng-content select="[content]" />
+  </div>
+  }
+  @if (displayFooter()) {
+  <footer [class]="styleClassFooter() + ' select-none'">
+    <ng-content select="[footer]" />
+  </footer>
+  }
+</div>

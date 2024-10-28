@@ -1,0 +1,17 @@
+@import "./assets/styles/typography/typography.scss";
+
+.dialog-content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+  height: 56px;
+  @include base-text-heading-5;
+  padding: 16px 24px;
+}
+
+.dialog-content-container {
+  height: 100%;
+  overflow: auto;
+  @include base-text;
+}
