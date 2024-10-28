@@ -40,6 +40,10 @@ export abstract class BaseFormDirective {
       detail: 'Verifique os campos obrigatórios',
     };
 
-    this._messageService.add(dto);
+    this.showToast(dto);
+  }
+
+  protected showToast(data: ToastInterface) {
+    this._messageService.add(data);
   }
 }
