@@ -18,11 +18,7 @@ export const PAGES_ROUTES: Routes = [
         loadChildren: () =>
           import('./company/company.routes').then((r) => r.COMPANY_ROUTES),
       },
-      {
-        path: '',
-        redirectTo: 'company',
-        pathMatch: 'full',
-      },
+      { path: '', redirectTo: 'company', pathMatch: 'full' },
     ],
   },
 ];
