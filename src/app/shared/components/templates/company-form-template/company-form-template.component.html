@@ -11,11 +11,11 @@
   <div formGroupName="contact" class="flex gap-2">
     <guep-input label="E-mail" inputId="email" formControlName="email" />
 
-    <guep-input-mask label="Celular" inputId="phone" formControlName="phone" [maskInput]="maskInputTelephone()"
-      [placeHolderText]="maskViewTelephone()" />
+    <guep-input-mask label="Celular" inputId="phone" formControlName="phone" [maskInput]="maskInputPhone()"
+      [placeHolderText]="maskInputPhone()" />
 
     <guep-input-mask label="Telefone" inputId="telephone" formControlName="telephone" [maskInput]="maskInputTelephone()"
-      [placeHolderText]="maskViewTelephone()" />
+      [placeHolderText]="maskInputTelephone()" />
   </div>
 
 </div>

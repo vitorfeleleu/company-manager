@@ -14,11 +14,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import {
-  CNPJ_MASK,
-  TELEPHONE_MASK,
-  VIEW_TELEPHONE_MASK,
-} from '@core/constant/masks';
+import { CNPJ_MASK, PHONE_MASK, TELEPHONE_MASK } from '@core/constant/masks';
 import { AddCompanyUseCase } from '@core/sql/use-cases/company/add-company.use-case';
 import { GetCompanyByCnpjUseCase } from '@core/sql/use-cases/company/get-company-by-cnpj.use-case';
 import { GetCompanyByIdUseCase } from '@core/sql/use-cases/company/get-company-by-id.use-case';
@@ -60,7 +56,7 @@ export class CompanyFormTemplateComponent extends BaseFormDirective {
   public override model: UntypedFormGroup = this._getModel();
   protected readonly maskInputCNPJ = signal(CNPJ_MASK);
   protected readonly maskInputTelephone = signal(TELEPHONE_MASK);
-  protected readonly maskViewTelephone = signal(VIEW_TELEPHONE_MASK);
+  protected readonly maskInputPhone = signal(PHONE_MASK);
 
   public companyId = input.required<string>();
 
@@ -92,7 +88,7 @@ export class CompanyFormTemplateComponent extends BaseFormDirective {
       cnpj: ['', [Validators.required, validadorCNPJ()]],
       address: ['', Validators.required],
       contact: this._builder.group({
-        email: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]],
         telephone: [''],
         phone: ['', Validators.required],
       }),
