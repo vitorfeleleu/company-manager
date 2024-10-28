@@ -12,10 +12,11 @@
     <guep-input placeHolderText="email" label="E-mail" inputId="email" formControlName="email" />
   </div>
 
-  <div class="w-full px-5">
-    <button (click)="onSubmit()" guepButton>Console Log</button>
-    <hr />
+  <div class="w-full px-5 flex gap-3">
+    <button (click)="onSubmit()" guepButton>Submit</button>
+    <button (click)="showDialog()" guepButton template="outlined">Show dialog</button>
   </div>
+  <hr class="w-full" />
 
   <div class="flex flex-column gap-3 p-5">
     <div class="flex gap-2">
