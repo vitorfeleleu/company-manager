@@ -40,6 +40,12 @@ import { filter, tap } from 'rxjs';
     InputMaskComponent,
   ],
   templateUrl: './company-form-template.component.html',
+  styles: `
+    :host {
+      width: 100%;
+      max-width: 1024px;
+    }
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CompanyFormTemplateComponent extends BaseFormDirective {

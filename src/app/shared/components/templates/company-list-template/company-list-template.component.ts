@@ -30,6 +30,12 @@ import { TooltipModule } from 'primeng/tooltip';
     RouterLink,
   ],
   templateUrl: './company-list-template.component.html',
+  styles: `
+    :host {
+      width: 100%;
+      max-width: 1440px;
+    }
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CompanyListTemplateComponent implements OnInit {
