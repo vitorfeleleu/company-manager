@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { TELEPHONE_MASK } from '@core/constant/masks';
+import type { ToastInterface } from '@core/interfaces/toats';
 import { DeleteCompanyUseCase } from '@core/sql/use-cases/company/delete-company.use-case';
 import { ListCompanyUseCase } from '@core/sql/use-cases/company/list-company.use-case';
 import { ConfirmeDialogComponent } from '@shared/components/organisms/dialogs/confirme-dialog/confirme-dialog.component';
@@ -15,6 +16,7 @@ import { ButtonDirective } from '@shared/directives/button.directive';
 import type { CompanyInterface } from '@shared/interfaces/company';
 import { CnpjPipe } from '@shared/pipes/cnpj.pipe';
 import { NgxMaskPipe } from 'ngx-mask';
+import { MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/dynamicdialog';
 import { TooltipModule } from 'primeng/tooltip';
 
@@ -43,6 +45,7 @@ export class CompanyListTemplateComponent implements OnInit {
   private _deleteCompanyUseCase = inject(DeleteCompanyUseCase);
   private _router = inject(Router);
   private _dialog = inject(DialogService);
+  private _messageService = inject(MessageService);
 
   protected companies = signal<CompanyInterface[]>([]);
   protected loadingTable = signal(true);
@@ -77,7 +80,16 @@ export class CompanyListTemplateComponent implements OnInit {
       if (response) {
         this._deleteCompanyUseCase.execute(id);
         this._getCompanies();
+        this.showToast({
+          severity: 'success',
+          summary: 'Sucesso',
+          detail: 'Empresa deletada com sucesso',
+        });
       }
     });
+  }
+
+  protected showToast(data: ToastInterface) {
+    this._messageService.add(data);
   }
 }
