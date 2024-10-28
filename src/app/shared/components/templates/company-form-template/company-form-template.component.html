@@ -1,0 +1,28 @@
+<div [formGroup]="model" class="w-full h-auto flex flex-column gap-2">
+
+  <div class="flex gap-2">
+    <guep-input label="Nome da empresa" inputId="companyName" formControlName="companyName" />
+    <guep-input-mask label="CNPJ" inputId="cnpj" formControlName="cnpj" [maskInput]="maskInputCNPJ()"
+      [placeHolderText]="maskInputCNPJ()" />
+  </div>
+
+  <guep-input label="Endereço" inputId="address" formControlName="address" />
+
+  <div formGroupName="contact" class="flex gap-2">
+    <guep-input label="E-mail" inputId="email" formControlName="email" />
+
+    <guep-input-mask label="Celular" inputId="phone" formControlName="phone" [maskInput]="maskInputTelephone()"
+      [placeHolderText]="maskViewTelephone()" />
+
+    <guep-input-mask label="Telefone" inputId="telephone" formControlName="telephone" [maskInput]="maskInputTelephone()"
+      [placeHolderText]="maskViewTelephone()" />
+  </div>
+
+</div>
+
+<div class="w-full flex justify-content-between	mt-3">
+  <button guepButton template="outlined" (click)="backRoute()">
+    Voltar
+  </button>
+  <button guepButton (click)="onSubmit()">Salvar</button>
+</div>
