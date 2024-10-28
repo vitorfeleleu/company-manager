@@ -6,7 +6,7 @@ import {
   signal,
 } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { TELEPHONE_MASK } from '@core/constant/masks';
+import { PHONE_MASK, TELEPHONE_MASK } from '@core/constant/masks';
 import type { ToastInterface } from '@core/interfaces/toats';
 import { DeleteCompanyUseCase } from '@core/sql/use-cases/company/delete-company.use-case';
 import { ListCompanyUseCase } from '@core/sql/use-cases/company/list-company.use-case';
@@ -50,6 +50,7 @@ export class CompanyListTemplateComponent implements OnInit {
   protected companies = signal<CompanyInterface[]>([]);
   protected loadingTable = signal(true);
   protected readonly maskInputTelephone = signal(TELEPHONE_MASK);
+  protected readonly maskInputPhone = signal(PHONE_MASK);
 
   ngOnInit(): void {
     this._getCompanies();
