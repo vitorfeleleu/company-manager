@@ -1,0 +1,10 @@
+<guep-dialog-content (close)="closeDialog()">
+  <div header>
+    <h5>{{ title() }}</h5>
+  </div>
+  <div content>{{ description() }}</div>
+  <div footer class="flex justify-content-end gap-3">
+    <button guepButton template="outlined" (click)="closeDialog()">Cancelar</button>
+    <button guepButton (click)="confirm()">Confirmar</button>
+  </div>
+</guep-dialog-content>
