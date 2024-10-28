@@ -106,13 +106,21 @@ export class CompanyFormTemplateComponent extends BaseFormDirective {
       this._updateCompanyUseCase.execute(Number(this.companyId()), dto);
     } else {
       this._addCompanyUseCase.execute(dto);
-      this.showToast({
-        severity: 'success',
-        summary: 'Sucesso',
-        detail: 'Empresa salva com sucesso!',
-      });
     }
+    this._showToastAlert();
     this.backRoute();
+  }
+
+  private _showToastAlert() {
+    const messageDetail = this.companyId()
+      ? 'Empresa editada com sucesso!'
+      : 'Empresa salva com sucesso!';
+
+    this.showToast({
+      severity: 'success',
+      summary: 'Sucesso',
+      detail: messageDetail,
+    });
   }
 
   protected backRoute() {
