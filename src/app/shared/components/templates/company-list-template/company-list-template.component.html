@@ -1,0 +1,35 @@
+<div class="w-full h-auto flex flex-column gap-2">
+  <guep-table [gridData]="companies()" [loading]="false">
+    <ng-template #headerTemplate>
+      <th>Nome da empresa</th>
+      <th>Cnpj</th>
+      <th>Endereços</th>
+      <th>Email</th>
+      <th>Celular</th>
+      <th>Telefone</th>
+      <th></th>
+    </ng-template>
+
+    <ng-template #itemTemplate let-item>
+      <td>{{ item.companyName }}</td>
+      <td>{{ item.cnpj | cnpj }}</td>
+      <td>{{ item.address }}</td>
+      <td>{{ item.contact.email }}</td>
+      <td>{{ item.contact.phone | mask: maskInputTelephone() }}</td>
+      <td>{{ item.contact.telephone | mask: maskInputTelephone() }}</td>
+
+      <td>
+        <div class="flex gap-2">
+          <button guepButton severity="help" pTooltip="Editar" tooltipPosition="bottom" (click)="edit(item.id)">
+            <span class="material-symbols-rounded">edit</span>
+          </button>
+          <button guepButton severity="danger" pTooltip="Deletar" tooltipPosition="bottom" (click)="delete(item.id)">
+            <span class="material-symbols-rounded">
+              delete
+            </span>
+          </button>
+        </div>
+      </td>
+    </ng-template>
+  </guep-table>
+</div>
