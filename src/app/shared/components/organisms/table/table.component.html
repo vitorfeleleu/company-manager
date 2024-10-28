@@ -1,0 +1,20 @@
+<p-table [value]="gridData()" [tableStyle]="{ width: '100%' }" [paginator]="isGridData()" [rows]="10"
+  [rowsPerPageOptions]="[10, 25, 50]" [loading]="loading()" [showCurrentPageReport]="true"
+  currentPageReportTemplate="Página {first} de {last} ({totalRecords} itens)">
+  <ng-template pTemplate="header">
+    <tr>
+      <ng-container [ngTemplateOutlet]="headerTemplate()" />
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-item>
+    <tr>
+      <ng-container [ngTemplateOutlet]="itemTemplate()" [ngTemplateOutletContext]="{ $implicit: item }" />
+    </tr>
+  </ng-template>
+</p-table>
+
+@if (!gridData().length) {
+<div class="w-full text-center py-8">
+  {{ emptyMessage() }}
+</div>
+}
