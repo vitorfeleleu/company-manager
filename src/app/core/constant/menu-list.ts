@@ -9,12 +9,12 @@ export const MENU_LIST: MenuInterface[] = [
   },
   {
     label: 'Lista de empresas',
-    routerLink: '/company-list',
+    routerLink: '/company/list',
     iconClass: 'store',
   },
   {
     label: 'Adicionar empresa',
-    routerLink: '/company-form',
+    routerLink: '/company/create',
     iconClass: 'add_business',
   },
 ];

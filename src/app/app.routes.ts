@@ -4,6 +4,6 @@ export const APP_ROUTES: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./pages/app.routes').then((r) => r.PAGES_ROUTES),
+      import('./pages/pages.routes').then((r) => r.PAGES_ROUTES),
   },
 ];

@@ -13,6 +13,16 @@ export const PAGES_ROUTES: Routes = [
             (c) => c.MasterComponentsComponent
           ),
       },
+      {
+        path: 'company',
+        loadChildren: () =>
+          import('./company/company.routes').then((r) => r.COMPANY_ROUTES),
+      },
+      {
+        path: '',
+        redirectTo: 'company',
+        pathMatch: 'full',
+      },
     ],
   },
 ];
