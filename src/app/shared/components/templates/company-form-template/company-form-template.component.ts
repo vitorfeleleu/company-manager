@@ -51,7 +51,7 @@ export class CompanyFormTemplateComponent extends BaseFormDirective {
   private _router = inject(Router);
   private _destroy = inject(DestroyRef);
 
-  protected override model: UntypedFormGroup = this._getModel();
+  public override model: UntypedFormGroup = this._getModel();
   protected readonly maskInputCNPJ = signal(CNPJ_MASK);
   protected readonly maskInputTelephone = signal(TELEPHONE_MASK);
   protected readonly maskViewTelephone = signal(VIEW_TELEPHONE_MASK);
@@ -59,7 +59,6 @@ export class CompanyFormTemplateComponent extends BaseFormDirective {
   public companyId = input.required<string>();
 
   async ngOnInit() {
-    console.log(this.companyId());
     this._checkCnpjRegistered();
     this._initialValueForm();
   }
@@ -69,8 +68,6 @@ export class CompanyFormTemplateComponent extends BaseFormDirective {
       const dto = await this._getCompanyByIdUseCase.execute(
         Number(this.companyId())
       );
-
-      console.log(dto);
 
       if (!dto) {
         this._companyNotFound();
