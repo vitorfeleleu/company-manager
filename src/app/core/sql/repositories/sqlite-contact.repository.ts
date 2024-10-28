@@ -16,7 +16,12 @@ export class SQLiteContactRepository implements ContactRepository {
     const stmt = this._db.prepare(
       'INSERT INTO contact (company_id, email, phone, telephone) VALUES (?, ?, ?, ?)'
     );
-    stmt.run([companyId, contact.email, contact.phone, contact.telephone]);
+    stmt.run([
+      companyId,
+      contact.email,
+      contact.phone,
+      contact.telephone ?? '',
+    ]);
     stmt.free();
 
     return contact;
@@ -38,12 +43,17 @@ export class SQLiteContactRepository implements ContactRepository {
     const result = this._db.exec(
       `SELECT * FROM contact WHERE company_id = ${id}`
     );
-    return result[0].values.map((row) => ({
-      id: row[0] as number,
-      email: row[1] as string,
-      phone: row[2] as string,
-      telephone: row[3] as string,
-    }))[0];
+
+    if (result[0]) {
+      return result[0].values.map((row) => ({
+        id: row[0] as number,
+        email: row[1] as string,
+        phone: row[2] as string,
+        telephone: row[3] as string,
+      }))[0];
+    }
+
+    return undefined;
   }
 
   public async update(id: number, company: ContactInterface): Promise<void> {

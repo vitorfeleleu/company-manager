@@ -47,7 +47,7 @@ export class DatabaseService {
         CREATE TABLE IF NOT EXISTS contact (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
           email TEXT NOT NULL,
-          phone TEXT,
+          phone TEXT NOT NULL,
           telephone TEXT,
           company_id INTEGER,
           FOREIGN KEY(company_id) REFERENCES company(id)

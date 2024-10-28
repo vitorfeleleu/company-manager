@@ -19,6 +19,10 @@ export class GetCompanyByIdUseCase {
       contact,
     } as CompanyInterface;
 
+    if (!contact) {
+      return company;
+    }
+
     return response;
   }
 }

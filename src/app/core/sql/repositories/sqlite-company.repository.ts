@@ -44,13 +44,34 @@ export class SQLiteCompanyRepository implements CompanyRepository {
 
   public async getById(id: number): Promise<CompanyInterface | undefined> {
     const result = this._db.exec(`SELECT * FROM company WHERE id = ${id}`);
-    return result[0].values.map((row) => ({
-      id: row[0] as number,
-      companyName: row[1] as string,
-      cnpj: row[2] as string,
-      address: row[3] as string,
-      contact: null,
-    }))[0];
+
+    if (result[0]) {
+      return result[0].values.map((row) => ({
+        id: row[0] as number,
+        companyName: row[1] as string,
+        cnpj: row[2] as string,
+        address: row[3] as string,
+        contact: null,
+      }))[0];
+    }
+
+    return undefined;
+  }
+
+  public async getByCnpj(cnpj: string): Promise<CompanyInterface | undefined> {
+    const result = this._db.exec(`SELECT * FROM company WHERE cnpj = ${cnpj}`);
+
+    if (result[0]) {
+      return result[0].values.map((row) => ({
+        id: row[0] as number,
+        companyName: row[1] as string,
+        cnpj: row[2] as string,
+        address: row[3] as string,
+        contact: null,
+      }))[0];
+    }
+
+    return undefined;
   }
 
   public async update(id: number, company: CompanyInterface): Promise<void> {
