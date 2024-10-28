@@ -15,6 +15,7 @@ import { SQLiteCompanyRepository } from '@core/sql/repositories/sqlite-company.r
 import { SQLiteContactRepository } from '@core/sql/repositories/sqlite-contact.repository';
 import { provideEnvironmentNgxMask } from 'ngx-mask';
 import { MessageService } from 'primeng/api';
+import { DialogService } from 'primeng/dynamicdialog';
 import { APP_ROUTES } from './app.routes';
 
 export function initializeApp(dbService: DatabaseService): () => Promise<void> {
@@ -44,5 +45,6 @@ export const appConfig: ApplicationConfig = {
       multi: true,
     },
     MessageService,
+    DialogService,
   ],
 };
