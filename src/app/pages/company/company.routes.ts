@@ -18,9 +18,8 @@ export const COMPANY_ROUTES: Routes = [
         (c) => c.CompanyFormComponent
       ),
     canDeactivate: [
-      (component: { model: FormGroup }) => {
-        inject(ConfirmExitGuard).isValid(component.model);
-      },
+      (component: { model: FormGroup }) =>
+        inject(ConfirmExitGuard).isValid(component.model),
     ],
   },
   {
@@ -30,9 +29,8 @@ export const COMPANY_ROUTES: Routes = [
         (c) => c.CompanyFormComponent
       ),
     canDeactivate: [
-      (component: { model: FormGroup }) => {
-        inject(ConfirmExitGuard).isValid(component.model);
-      },
+      (component: { model: FormGroup }) =>
+        inject(ConfirmExitGuard).isValid(component.model),
     ],
   },
   {
