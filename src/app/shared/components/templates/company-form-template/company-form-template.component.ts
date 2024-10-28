@@ -135,8 +135,6 @@ export class CompanyFormTemplateComponent extends BaseFormDirective {
                 ...this._controls.cnpj.errors,
                 isRegistered: 'CNPJ já cadastrado',
               });
-            } else {
-              this._controls.cnpj.setErrors(null);
             }
           })
         )
