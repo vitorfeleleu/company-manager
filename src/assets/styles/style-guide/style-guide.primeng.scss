@@ -1,0 +1,28 @@
+.p-tooltip .p-tooltip-text {
+  white-space: nowrap;
+  max-width: fit-content;
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.wrap-text {
+  .p-tooltip .p-tooltip-text {
+    white-space: pre-line;
+  }
+}
+
+.p-dialog .p-dialog-header {
+  display: none;
+  color: var(--neutral-high);
+}
+
+.p-dialog .p-dialog-content:last-of-type {
+  padding: 0;
+  border-radius: 4px;
+}
+
+.p-dialog .p-dialog-content {
+  color: var(--neutral-high);
+}
